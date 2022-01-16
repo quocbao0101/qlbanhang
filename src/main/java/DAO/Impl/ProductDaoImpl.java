@@ -18,7 +18,7 @@ public class ProductDaoImpl implements ProductDAO{
 	@Override
 	public void add(Product product) {
 		Connection conn = DBConnect.getConnect();
-		String sql = "INSERT INTO product(catalog_id,name,price,status,description,image_link,quantity) values(?,?,?,?,?,?,?)";		
+		String sql = "INSERT INTO product(catalog_id,name,price,description,image_link,quantity) values(?,?,?,?,?,?)";		
 		PreparedStatement ps;
 		try
 		{
@@ -27,11 +27,10 @@ public class ProductDaoImpl implements ProductDAO{
 			ps.setString(2, product.getName());
 			ps.setString(3, product.getPrice());
 		
-			ps.setInt(4, product.getStatus());
-			ps.setString(5, product.getDescription());
+			ps.setString(4, product.getDescription());
 	
-			ps.setString(6, product.getImage_link());
-			ps.setInt(7, product.getQuantity());
+			ps.setString(5, product.getImage_link());
+			ps.setInt(6, product.getQuantity());
 			ps.executeUpdate();
 			conn.close();
 		}
@@ -58,7 +57,6 @@ public class ProductDaoImpl implements ProductDAO{
 				product.setName(rs.getString("name"));
 				product.setPrice(rs.getString("price"));
 				product.setQuantity(rs.getInt("quantity"));
-				product.setStatus(rs.getInt("status"));
 				product.setDescription(rs.getString("description"));				
 				product.setImage_link(rs.getString("image_link"));
 				product.setCreated(rs.getString("created"));
@@ -90,7 +88,6 @@ public class ProductDaoImpl implements ProductDAO{
 				product.setName(rs.getString("name"));
 				product.setPrice(rs.getString("price"));
 				product.setQuantity(rs.getInt("quantity"));
-				product.setStatus(rs.getInt("status"));
 				product.setDescription(rs.getString("description"));				
 				product.setImage_link(rs.getString("image_link"));
 				product.setCreated(rs.getString("created"));
@@ -119,7 +116,6 @@ public class ProductDaoImpl implements ProductDAO{
 				product.setName(rs.getString("name"));
 				product.setPrice(rs.getString("price"));
 				product.setQuantity(rs.getInt("quantity"));
-				product.setStatus(rs.getInt("status"));
 				product.setDescription(rs.getString("description"));				
 				product.setImage_link(rs.getString("image_link"));
 				product.setCreated(rs.getString("created"));
@@ -148,7 +144,7 @@ public class ProductDaoImpl implements ProductDAO{
 	}
 	@Override
 	public void edit(Product product) { 
-	String sql = "Update product set catalog_id =?, name =?, price =?, status =?, description=?, image_link =?,quantity =? Where id=?";
+	String sql = "Update product set catalog_id =?, name =?, price =?,  description=?, image_link =?,quantity =? Where id=?";
 
 		Connection conn = DBConnect.getConnect();
 		try 
@@ -158,12 +154,12 @@ public class ProductDaoImpl implements ProductDAO{
 			ps.setString(2, product.getName());
 			ps.setString(3, product.getPrice());
 		
-			ps.setInt(4, product.getStatus());
-			ps.setString(5, product.getDescription());
+
+			ps.setString(4, product.getDescription());
 			
-			ps.setString(6, product.getImage_link());
-			ps.setInt(7, product.getQuantity());
-			ps.setString(8, product.getId());
+			ps.setString(5, product.getImage_link());
+			ps.setInt(6, product.getQuantity());
+			ps.setString(7, product.getId());
 			
 			ps.executeUpdate();
 		} catch (SQLException e) {
@@ -211,7 +207,6 @@ public class ProductDaoImpl implements ProductDAO{
 				product.setName(rs.getString("name"));
 				product.setPrice(rs.getString("price"));
 				product.setQuantity(rs.getInt("quantity"));
-				product.setStatus(rs.getInt("status"));
 				product.setDescription(rs.getString("description"));				
 				product.setImage_link(rs.getString("image_link"));
 				product.setCreated(rs.getString("created"));
@@ -243,7 +238,6 @@ public class ProductDaoImpl implements ProductDAO{
 				product.setName(rs.getString("name"));
 				product.setPrice(rs.getString("price"));
 				product.setQuantity(rs.getInt("quantity"));
-				product.setStatus(rs.getInt("status"));
 				product.setDescription(rs.getString("description"));				
 				product.setImage_link(rs.getString("image_link"));
 				product.setCreated(rs.getString("created"));

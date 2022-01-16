@@ -31,23 +31,25 @@
 					</div>
                     <div class="form-group mb-2">
                         <label>Danh mục</label>
-                        <input class="form-control" type="text" required name="catalog_id" value="${product.catalog_id}">
+                        <select class="custom-select custom-select-lg mb-3" name="catalog_id">
+						  <option selected>Chọn danh mục</option>
+						  <c:forEach items="${categoryList}" var="x"> 
+						  	<option value="${x.id }">${x.name_category }</option>
+						  </c:forEach>
+						</select>
                     </div>
                     <div class="form-group mb-2">
                         <label>Tên</label>
-                        <input class="form-control" type="text" required name="name" value="${product.name}">
+                        <input class="form-control" type="text" required name="name" >
                     </div>
                     <div class="form-group mb-2">
                         <label>Giá</label>
-                        <input class="form-control" type="text" required name="price"  value="${product.price}">
+                        <input class="form-control" type="text" required name="price"  >
                     </div>
-                    <div class="form-group mb-2">
-                        <label>Trạng thái</label>
-                        <input class="form-control" type="text" required name="status"  value="${product.status}">
-                    </div>
+
                     <div class="form-group mb-2">
                         <label>Mô tả</label>
-                        <input class="form-control" type="text" required name="description"  value="${product.description}">
+                        <input class="form-control" type="text" required name="description"  >
                     </div>
                     
                     
@@ -59,7 +61,7 @@
                     </div>
                     <div class="form-group mb-2">
                         <label>Số lượng</label>
-                        <input class="form-control" type="text" required name="quantity" value="${product.quantity}">
+                        <input class="form-control" type="text" required name="quantity">
                     </div>
                     <div class="form-group mb-2">
                     	<input type="submit" class="btn btn-add" value="Thêm sản phẩm"/>

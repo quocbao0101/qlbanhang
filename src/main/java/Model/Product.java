@@ -2,12 +2,11 @@ package Model;
 
 public class Product {
 	public Product() {};
-	public Product(String catalog_id,String name,String price, int status, String description, String image_link, int quantity)
+	public Product(String catalog_id,String name,String price,  String description, String image_link, int quantity)
 	{
 		this.catalog_id = catalog_id;
 		this.name = name;
 		this.price = price;
-		this.status = status;
 		this.description = description;
 		this.image_link = image_link;
 		this.quantity = quantity;

@@ -50,7 +50,6 @@
             <th class="font-weight-bold text-primary text-center">Tên sản phẩm</th>
             <th class="font-weight-bold text-primary text-center">Số lượng</th>            
             <th class="font-weight-bold text-primary text-center">Giá</th>
-            <th class="font-weight-bold text-primary text-center">Trạng thái</th>
             <th class="font-weight-bold text-primary text-center">Mô tả</th>
             <th class="font-weight-bold text-primary text-center">Hình ảnh</th>
             <th class="font-weight-bold text-primary text-center">Thời gian tạo</th>
@@ -66,7 +65,6 @@
                     <td>${product.name}</td>
                     <td>${product.quantity}</td>
                     <td>${product.price}</td>
-					<td>${product.status}</td>
 					<td>${product.description}</td>
 					<td>${product.image_link}</td>
 					<td>${product.created }</td>
@@ -75,7 +73,7 @@
                         <a class="btn btn-info" href="${pageContext.request.contextPath}/admin/product-edit?id=${product.id}">Sửa</a>
                     </td>
                     <td >
-                       <a class="btn btn-delete" href="${pageContext.request.contextPath}/admin/product/delete?id=${product.id}">Xóa</a>
+                       <a class="btn btn-info" href="${pageContext.request.contextPath}/admin/product/delete?id=${product.id}">Xóa</a>
                     </td>
                 </tr>
 			</c:forEach> 
@@ -83,12 +81,5 @@
         </tbody>
       </table>
 
-        <div style="margin-left: 50%;">
-                <div class="pagination">
-                    <ul class="pagination font-weight-bold text-primary">
-						<li class='page-item'><a  class='page-link' href=''>1</a></li>
-                    </ul>
-                </div>
-        </div>
     </div>
     <jsp:include page = "./assets/includes/scripts.jsp" flush = "true" />
