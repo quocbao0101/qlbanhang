@@ -24,6 +24,8 @@ public class RegisterController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=UTF-8");
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		String phone = request.getParameter("phone");
@@ -58,7 +60,7 @@ public class RegisterController extends HttpServlet {
 			if(err.length()==0)
 			{
 				userDAO.addUser(new User(username,password,name,phone,email));
-	            response.sendRedirect("index.jsp");
+	            response.sendRedirect("login.jsp");
 			}
 			else
 			{

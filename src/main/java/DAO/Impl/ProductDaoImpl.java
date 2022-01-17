@@ -194,7 +194,7 @@ public class ProductDaoImpl implements ProductDAO{
 	@Override
 	public List<Product> getsp() {
 		List<Product> products = new ArrayList<Product>();
-		String sql = "SELECT * FROM product ORDER BY quantity ASC";
+		String sql = "SELECT * FROM product ORDER BY quantity ASC LIMIT 4";
 		Connection conn = DBConnect.getConnect();
 		try
 		{
